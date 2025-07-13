@@ -1,0 +1,6 @@
+/home/topcuoglu/openrecombinhunt/results/haplocov_output/yellow-fever/dist3size10/temp_work/reference.fasta /home/topcuoglu/openrecombinhunt/results/haplocov_output/yellow-fever/dist3size10/temp_work/Tgenomes/MW249074.1.fasta
+NUCMER
+
+    [P1]  [SUB]  [P2]      |   [BUFF]   [DIST]  |  [LEN R]  [LEN Q]  | [FRM]  [TAGS]
+========================================================================================
+    4054   T C   4001      |     1220     1220  |    10862     5220  |  1  1  NC_002031.1	MW249074.1

@@ -1,0 +1,14 @@
+/home/topcuoglu/openrecombinhunt/results/haplocov_output/yellow-fever/dist3size10/temp_work/reference.fasta /home/topcuoglu/openrecombinhunt/results/haplocov_output/yellow-fever/dist3size10/temp_work/Tgenomes/MF289572.1.fasta
+NUCMER
+
+    [P1]  [SUB]  [P2]      |   [BUFF]   [DIST]  |  [LEN R]  [LEN Q]  | [FRM]  [TAGS]
+========================================================================================
+    1949   A G   1949      |     1949     1949  |    10862    10839  |  1  1  NC_002031.1	MF289572.1
+    4054   T C   4054      |     1587     4054  |    10862    10839  |  1  1  NC_002031.1	MF289572.1
+    5641   A G   5641      |      888     5199  |    10862    10839  |  1  1  NC_002031.1	MF289572.1
+    6529   C T   6529      |      229     4311  |    10862    10839  |  1  1  NC_002031.1	MF289572.1
+    6758   G A   6758      |      229     4082  |    10862    10839  |  1  1  NC_002031.1	MF289572.1
+    7319   G A   7319      |      561     3521  |    10862    10839  |  1  1  NC_002031.1	MF289572.1
+    9605   G A   9605      |      638     1235  |    10862    10839  |  1  1  NC_002031.1	MF289572.1
+   10243   A G   10243     |      211      597  |    10862    10839  |  1  1  NC_002031.1	MF289572.1
+   10454   G A   10454     |      211      386  |    10862    10839  |  1  1  NC_002031.1	MF289572.1

@@ -1,0 +1,13 @@
+/home/topcuoglu/openrecombinhunt/results/haplocov_output/yellow-fever/dist3size10/temp_work/reference.fasta /home/topcuoglu/openrecombinhunt/results/haplocov_output/yellow-fever/dist3size10/temp_work/Tgenomes/MW158360.1.fasta
+NUCMER
+
+    [P1]  [SUB]  [P2]      |   [BUFF]   [DIST]  |  [LEN R]  [LEN Q]  | [FRM]  [TAGS]
+========================================================================================
+    1887   T C   1874      |     1874     1874  |    10862    10845  |  1  1  NC_002031.1	MW158360.1
+    5641   A G   5628      |      888     5218  |    10862    10845  |  1  1  NC_002031.1	MW158360.1
+    6529   C T   6516      |      229     4330  |    10862    10845  |  1  1  NC_002031.1	MW158360.1
+    6758   G A   6745      |      229     4101  |    10862    10845  |  1  1  NC_002031.1	MW158360.1
+    7319   G A   7306      |      561     3540  |    10862    10845  |  1  1  NC_002031.1	MW158360.1
+    9605   G A   9592      |      638     1254  |    10862    10845  |  1  1  NC_002031.1	MW158360.1
+   10243   A G   10230     |      211      616  |    10862    10845  |  1  1  NC_002031.1	MW158360.1
+   10454   G A   10441     |      211      405  |    10862    10845  |  1  1  NC_002031.1	MW158360.1

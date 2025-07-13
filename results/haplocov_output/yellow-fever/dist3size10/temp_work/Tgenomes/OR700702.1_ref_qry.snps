@@ -1,0 +1,13 @@
+/home/topcuoglu/openrecombinhunt/results/haplocov_output/yellow-fever/dist3size10/temp_work/reference.fasta /home/topcuoglu/openrecombinhunt/results/haplocov_output/yellow-fever/dist3size10/temp_work/Tgenomes/OR700702.1.fasta
+NUCMER
+
+    [P1]  [SUB]  [P2]      |   [BUFF]   [DIST]  |  [LEN R]  [LEN Q]  | [FRM]  [TAGS]
+========================================================================================
+    4054   T C   4053      |     1587     4053  |    10862    10861  |  1  1  NC_002031.1	OR700702.1
+    5641   A G   5640      |      888     5222  |    10862    10861  |  1  1  NC_002031.1	OR700702.1
+    6529   C T   6528      |      229     4334  |    10862    10861  |  1  1  NC_002031.1	OR700702.1
+    6758   G A   6757      |      229     4105  |    10862    10861  |  1  1  NC_002031.1	OR700702.1
+    7319   G A   7318      |      561     3544  |    10862    10861  |  1  1  NC_002031.1	OR700702.1
+    9605   G A   9604      |      638     1258  |    10862    10861  |  1  1  NC_002031.1	OR700702.1
+   10243   A G   10242     |      211      620  |    10862    10861  |  1  1  NC_002031.1	OR700702.1
+   10454   G A   10453     |      211      409  |    10862    10861  |  1  1  NC_002031.1	OR700702.1

@@ -1,0 +1,121 @@
+paths:
+  raw_data: "data/raw"
+  processed_data: "data/processed"
+  results: "results"
+  environments: "environments"
+  samples: "samples"
+  logs: "logs"
+  libs: "libs"
+
+viruses:
+  yellow-fever:
+    name: "yellow-fever"
+    
+    source: "ncbi"
+    method: "cli"
+    
+    taxon_id: "11089"
+
+    reference:
+      accession_id: "NC_002031.1"
+
+    parameters:
+      metadata_processing:
+        source_lineage_column: "NONE"
+        filters:
+          # Rule 1: Discard rows where 'Isolate Collection date' is missing.
+          - column: "Isolate Collection date"
+            operator: "notna"
+            # 'value' is not needed for 'notna' operator
+
+          # Rule 2: Discard rows where 'Accession' is missing.
+          - column: "Accession"
+            operator: "notna"
+
+          # Rule 3: Discard rows where 'Length' is missing.
+          # This is implicitly handled by the next rule, but it's good practice
+          # to be explicit if you want to ensure it's not NA before a numeric comparison.
+          - column: "Length"
+            operator: "notna"
+
+          # Rule 4: Discard rows where sequence 'Length' is less than 9000.
+          - column: "Length"
+            operator: ">="
+            value: 9000
+
+      haplocov:
+        dist: 3
+        size: 10
+        # Defines the designation strategy. Options:
+        # "haplocov": Use only designations created by HaploCov.
+        # "nomenclature": Use only existing Pango lineages from metadata.
+        # "both": Use both existing nomenclature and new HaploCov designations.
+        designation_mode: "haplocov"
+
+      recombinhunt:
+        lc_threshold: 0.75
+        min_genome_count: 10
+        run_mode: "all"
+
+  rsv-a:
+    name: "rsv-a"
+
+    source: "nextstrain"
+    method: "url"
+
+    taxon_id: "11250" #TODO: Verify this taxon ID
+
+    reference:
+      accession_id: "NC_038235.1"
+
+    parameters:
+      metadata_processing:
+        source_lineage_column: "clade"
+        # A list of filter rules to apply sequentially to the raw metadata.
+        filters:
+          - { column: "accession", operator: "notna" }
+          - { column: "date", operator: "notna" }
+          - { column: "qc.overallStatus", operator: "==", value: "good" }
+          - { column: "missing_data", operator: "<=", value: 3 }
+          
+          # TODO: Discuss if we need more filters here
+          
+          #- { column: "alignmentScore", operator: ">", value: 40000 }
+          #- { column: "genome_coverage", operator: ">", value: 0.9 }
+          #- { column: "G_coverage", operator: ">", value: 0.98 }
+          #- { column: "F_coverage", operator: ">", value: 0.98 }
+      haplocov:
+        dist: 5
+        size: 50
+        designation_mode: "both"
+
+      recombinhunt:
+
+ncbi-cli:
+  # Configuration for NCBI CLI to download virus genomes and metadata.
+  sequences:
+    # Command to download the main dataset.
+    # Placeholders {taxon_id} and {virus_name} will be replaced by the script.
+    - "datasets download virus genome taxon {taxon_id} --include genome --filename {virus_name}-download.zip"
+    
+    # Command to generate metadata from the downloaded report.
+    # The script will handle unzipping and navigating into the correct folder to run this.
+    - "dataformat tsv virus-genome --inputfile ncbi_dataset/data/data_report.jsonl > {virus_name}-raw-metadata.tsv"
+
+  reference:
+    # Command to download the reference genome.
+    - "datasets download virus genome accession {accession_id} --include genome --filename {virus_name}-reference.zip"
+
+nextstrain-url:
+  rsv-a:
+    sequences: "https://data.nextstrain.org/files/workflows/rsv/a/sequences.fasta.xz"
+    metadata: "https://data.nextstrain.org/files/workflows/rsv/a/metadata.tsv.gz"
+
+  rsv-b:
+    sequences: "https://nextstrain.org/data/nextstrain.org/rsv-b/latest/auspice/ncov-sequences.fasta"
+    metadata: "https://nextstrain.org/data/nextstrain.org/rsv-b/latest/auspice/ncov-metadata.tsv"
+
+  sars-cov-2:
+    sequences: "https://nextstrain.org/data/nextstrain.org/sars-cov-2/latest/auspice/ncov-sequences.fasta"
+    metadata: "https://nextstrain.org/data/nextstrain.org/sars-cov-2/latest/auspice/ncov-metadata.tsv"
+
