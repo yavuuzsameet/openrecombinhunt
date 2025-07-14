@@ -167,6 +167,8 @@ def format_location_column(df: pd.DataFrame) -> pd.DataFrame:
 def process_nextstrain_metadata(df: pd.DataFrame, filter_rules: list, source_lineage_col: str, column_mapping: dict) -> Tuple[pd.DataFrame, Set[str], Set[str]]:
     """Applies a full preprocessing workflow to the raw Nextstrain metadata."""
     df_processed = df.copy()
+
+    logging.info(f"Starting preprocessing of Nextstrain metadata with {len(df_processed)} rows.")
     
     # Determine the source ID column from the mapping, with a fallback
     source_id_col = next((k for k, v in column_mapping.items() if v == 'Virus name'))

@@ -90,6 +90,9 @@ viruses:
         designation_mode: "both"
 
       recombinhunt:
+        lc_threshold: 0.75
+        min_genome_count: 10
+        run_mode: "all"
 
 ncbi-cli:
   # Configuration for NCBI CLI to download virus genomes and metadata.
