@@ -135,7 +135,7 @@ def main():
             ]
         else:
             pipeline_steps = [
-                step1_fetch,
+                #step1_fetch,
                 step2_prep_meta,
                 step2_prep_fasta,
                 step2_prep_ref,

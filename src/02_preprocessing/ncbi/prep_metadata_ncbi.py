@@ -198,10 +198,13 @@ def process_ncbi_metadata(df: pd.DataFrame, filter_rules: list, source_lineage_c
     if source_lineage_col and source_lineage_col.upper() != 'NONE':
         logging.info(f"Using source column '{source_lineage_col}' for lineage information.")
         if source_lineage_col in df_processed.columns:
-            lineage_na_mask = df_processed[source_lineage_col].isna()
-            ids_to_drop_no_lineage = set(df_processed.loc[lineage_na_mask, SOURCE_ID_COL].dropna())
+            is_na_mask = df_processed[source_lineage_col].isna()
+            is_unclassifiable_mask = df_processed[source_lineage_col].str.lower().isin(['unclassified', 'unknown', 'na', 'n/a', 'not applicable'])
+            combined_drop_mask = is_na_mask | is_unclassifiable_mask
+
+            ids_to_drop_no_lineage = set(df_processed.loc[combined_drop_mask, SOURCE_ID_COL].dropna())
             non_classified_ids.update(ids_to_drop_no_lineage)
-            df_processed = df_processed[~lineage_na_mask]
+            df_processed = df_processed[~combined_drop_mask]
             logging.info(f"  Identified and removed {len(ids_to_drop_no_lineage)} non-classified rows (missing '{source_lineage_col}').")
             # Add the mapping for the Pango lineage column for the final step
             COLUMN_MAPPING[source_lineage_col] = 'Pango lineage'
