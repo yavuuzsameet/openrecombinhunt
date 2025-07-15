@@ -125,6 +125,43 @@ viruses:
         min_genome_count: 10
         run_mode: "all"
 
+  zika:
+    name: "zika"
+
+    source: "ncbi"
+    method: "cli"
+
+    taxon_id: "64320"
+
+    reference:
+      accession_id: "NC_035889.1"
+
+    parameters:
+      metadata_processing:
+        source_lineage_column: "NONE"
+        filters:
+          # Rule 1: Discard rows where 'Isolate Collection date' is missing.
+          - column: "Isolate Collection date"
+            operator: "notna"
+
+          # Rule 2: Discard rows where 'Accession' is missing.
+          - column: "Accession"
+            operator: "notna"
+
+          # Rule 3: Discard rows where 'Length' is missing.
+          - column: "Length"
+            operator: "notna"
+
+      haplocov:
+        dist: 3
+        size: 10
+        designation_mode: "haplocov"
+
+      recombinhunt:
+        lc_threshold: 0.75
+        min_genome_count: 10
+        run_mode: "all"
+
 ncbi-cli:
   # Configuration for NCBI CLI to download virus genomes and metadata.
   sequences:
