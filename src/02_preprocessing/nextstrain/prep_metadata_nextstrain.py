@@ -192,6 +192,7 @@ def process_nextstrain_metadata(df: pd.DataFrame, filter_rules: list, source_lin
         elif op == ">=": numeric_col = pd.to_numeric(df_processed[col], errors='coerce'); keep_mask = numeric_col >= val
         elif op == ">": numeric_col = pd.to_numeric(df_processed[col], errors='coerce'); keep_mask = numeric_col > val
         elif op == "<=": numeric_col = pd.to_numeric(df_processed[col], errors='coerce'); keep_mask = numeric_col <= val
+        elif op == "<": numeric_col = pd.to_numeric(df_processed[col], errors='coerce'); keep_mask = numeric_col < val
         elif op == "==": keep_mask = df_processed[col] == val
         else: logging.warning(f"Filter operator '{op}' not implemented. Skipping."); continue
             

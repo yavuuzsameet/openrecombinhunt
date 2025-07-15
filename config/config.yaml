@@ -94,6 +94,37 @@ viruses:
         min_genome_count: 10
         run_mode: "all"
 
+  rsv-b:
+    name: "rsv-b"
+
+    source: "nextstrain"
+    method: "url"
+
+    taxon_id: "11250" #TODO: Verify this taxon ID #NOT NECESSARILY NEEDED
+
+    reference:
+      accession_id: "NC_001781.1"
+
+    parameters:
+      metadata_processing:
+        source_lineage_column: "clade"
+        # A list of filter rules to apply sequentially to the raw metadata.
+        filters:
+          - { column: "accession", operator: "notna" }
+          - { column: "date", operator: "notna" }
+          - { column: "qc.overallStatus", operator: "==", value: "good" }
+          - { column: "missing_data", operator: "<", value: 3 }
+
+      haplocov:
+        dist: 5
+        size: 50
+        designation_mode: "both"
+
+      recombinhunt:
+        lc_threshold: 0.75
+        min_genome_count: 10
+        run_mode: "all"
+
 ncbi-cli:
   # Configuration for NCBI CLI to download virus genomes and metadata.
   sequences:
@@ -115,8 +146,8 @@ nextstrain-url:
     metadata: "https://data.nextstrain.org/files/workflows/rsv/a/metadata.tsv.gz"
 
   rsv-b:
-    sequences: "https://nextstrain.org/data/nextstrain.org/rsv-b/latest/auspice/ncov-sequences.fasta"
-    metadata: "https://nextstrain.org/data/nextstrain.org/rsv-b/latest/auspice/ncov-metadata.tsv"
+    sequences: "https://data.nextstrain.org/files/workflows/rsv/b/sequences.fasta.xz"
+    metadata: "https://data.nextstrain.org/files/workflows/rsv/b/metadata.tsv.gz"
 
   sars-cov-2:
     sequences: "https://nextstrain.org/data/nextstrain.org/sars-cov-2/latest/auspice/ncov-sequences.fasta"
