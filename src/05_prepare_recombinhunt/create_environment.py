@@ -295,6 +295,18 @@ def main():
         logging.error(f"Input file not found: {input_file}. Please run previous pipeline steps.")
         sys.exit(1)
 
+    # --- NEW: Clean the DataFrame before any calculations ---
+    logging.info(f"Initial row count: {len(df):,}")
+    initial_rows = len(df)
+    # Drop rows where 'mutations' column is NaN or an empty string
+    df.dropna(subset=['mutations'], inplace=True)
+    df = df[df['mutations'] != '']
+    rows_dropped = initial_rows - len(df)
+    if rows_dropped > 0:
+        logging.info(f"Dropped {rows_dropped:,} rows with missing or empty 'mutations' column.")
+    logging.info(f"Row count after cleaning: {len(df):,}")
+    # --- End of New Section ---
+
     # --- 4. Run Calculations ---
     min_genomes = recombinhunt_params.get(MIN_GENOME_COUNT, 10)
     lc_thresh = recombinhunt_params.get(LC_THRESHOLD, 0.75)
