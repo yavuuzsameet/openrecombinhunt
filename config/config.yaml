@@ -204,6 +204,17 @@ viruses:
         min_genome_count: 10
         run_mode: "all"
 
+  influenza:
+    name: "influenza"
+
+    source: "ncbi"
+    method: "cli"
+
+    taxon_id: "11320"
+
+    reference:
+      accession_id: "NC_007362.1"
+
 ncbi-cli:
   # Configuration for NCBI CLI to download virus genomes and metadata.
   sequences:
