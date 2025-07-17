@@ -137,60 +137,114 @@ def fetch_from_nextstrain(virus_config: dict, global_config: dict, virus_raw_dir
         logging.error(f"No URLs found for '{virus_name}' under the '{NEXTSTRAIN_URL}' key in the config file.")
         return
 
-    # 1. Download and decompress metadata
-    metadata_url = virus_urls.get(METADATA)
-    if metadata_url:
-        logging.info(f"Step 1: Downloading metadata from {metadata_url}")
-        gz_path = virus_raw_dir / "temp_metadata.tsv.gz"
-        final_path = virus_raw_dir / "raw_metadata.tsv"
-        try:
-            with requests.get(metadata_url, stream=True) as r:
-                r.raise_for_status()
-                with open(gz_path, 'wb') as f:
-                    shutil.copyfileobj(r.raw, f)
+    # # 1. Download and decompress metadata
+    # metadata_url = virus_urls.get(METADATA)
+    # if metadata_url:
+    #     logging.info(f"Step 1: Downloading metadata from {metadata_url}")
+    #     gz_path = virus_raw_dir / "temp_metadata.tsv.gz"
+    #     final_path = virus_raw_dir / "raw_metadata.tsv"
+    #     try:
+    #         with requests.get(metadata_url, stream=True) as r:
+    #             r.raise_for_status()
+    #             with open(gz_path, 'wb') as f:
+    #                 shutil.copyfileobj(r.raw, f)
             
-            logging.info(f"Decompressing {gz_path}...")
-            with gzip.open(gz_path, 'rb') as f_in:
-                with open(final_path, 'wb') as f_out:
-                    shutil.copyfileobj(f_in, f_out)
-            gz_path.unlink()
+    #         logging.info(f"Decompressing {gz_path}...")
+    #         with gzip.open(gz_path, 'rb') as f_in:
+    #             with open(final_path, 'wb') as f_out:
+    #                 shutil.copyfileobj(f_in, f_out)
+    #         gz_path.unlink()
+    #     except Exception as e:
+    #         logging.error(f"Failed to download or process metadata: {e}")
+
+    # # 2. Download and decompress sequences
+    # sequences_url = virus_urls.get(SEQUENCES)
+    # if sequences_url:
+    #     logging.info(f"Step 2: Downloading sequences from {sequences_url}")
+    #     if sequences_url.endswith(".xz"):
+    #         compressed_path = virus_raw_dir / "temp_sequences.fasta.xz"
+    #         decompress_func = lzma.open
+    #     else:
+    #         logging.warning(f"Unrecognized compression format for URL: {sequences_url}. Assuming no compression.")
+    #         compressed_path = None
+
+    #     final_path = virus_raw_dir / "raw_sequences.fasta"
+    #     try:
+    #         with requests.get(sequences_url, stream=True) as r:
+    #             r.raise_for_status()
+    #             if compressed_path:
+    #                 with open(compressed_path, 'wb') as f:
+    #                     shutil.copyfileobj(r.raw, f)
+                    
+    #                 logging.info(f"Decompressing {compressed_path}...")
+    #                 with decompress_func(compressed_path) as f_in:
+    #                     with open(final_path, 'wb') as f_out:
+    #                         shutil.copyfileobj(f_in, f_out)
+    #                 compressed_path.unlink()
+    #             else:
+    #                 with open(final_path, 'wb') as f:
+    #                     shutil.copyfileobj(r.raw, f)
+    #     except Exception as e:
+    #         logging.error(f"Failed to download or process sequences: {e}")
+
+    def download_and_decompress(url: str, final_filename: str):
+        """Helper to download a file and decompress it based on its extension."""
+        if not url:
+            logging.warning(f"No URL provided for {final_filename}. Skipping.")
+            return
+
+        logging.info(f"Downloading from {url}")
+        
+        # Determine temporary filename and decompression method
+        if url.endswith(".gz"):
+            temp_path = virus_raw_dir / f"temp_{final_filename}.gz"
+            decompressor = gzip.open
+        elif url.endswith(".zst"):
+            temp_path = virus_raw_dir / f"temp_{final_filename}.zst"
+            decompressor = zstd.open
+        elif url.endswith(".xz"):
+            temp_path = virus_raw_dir / f"temp_{final_filename}.xz"
+            decompressor = lzma.open
+        else:
+            logging.warning(f"Unrecognized compression format for URL: {url}. Assuming no compression.")
+            temp_path = virus_raw_dir / final_filename
+            decompressor = None
+
+        final_path = virus_raw_dir / final_filename
+
+        try:
+            with requests.get(url, stream=True) as r:
+                r.raise_for_status()
+                with open(temp_path, 'wb') as f:
+                    shutil.copyfileobj(r.raw, f)
+
+            if decompressor:
+                logging.info(f"Decompressing {temp_path}...")
+                with decompressor(temp_path, 'rb') as f_in:
+                    with open(final_path, 'wb') as f_out:
+                        shutil.copyfileobj(f_in, f_out)
+                temp_path.unlink() # Delete the compressed file
+            
+            logging.info(f"Successfully created {final_path}")
+
         except Exception as e:
-            logging.error(f"Failed to download or process metadata: {e}")
+            logging.error(f"Failed to download or process {url}: {e}")
+
+    # 1. Download and decompress metadata
+    logging.info("Step 1: Downloading metadata...")
+    metadata_url = virus_urls.get(METADATA)
+    download_and_decompress(metadata_url, "raw_metadata.tsv")
 
     # 2. Download and decompress sequences
+    logging.info("Step 2: Downloading sequences...")
     sequences_url = virus_urls.get(SEQUENCES)
-    if sequences_url:
-        logging.info(f"Step 2: Downloading sequences from {sequences_url}")
-        if sequences_url.endswith(".xz"):
-            compressed_path = virus_raw_dir / "temp_sequences.fasta.xz"
-            decompress_func = lzma.open
-        else:
-            logging.warning(f"Unrecognized compression format for URL: {sequences_url}. Assuming no compression.")
-            compressed_path = None
+    download_and_decompress(sequences_url, "raw_sequences.fasta")
 
-        final_path = virus_raw_dir / "raw_sequences.fasta"
-        try:
-            with requests.get(sequences_url, stream=True) as r:
-                r.raise_for_status()
-                if compressed_path:
-                    with open(compressed_path, 'wb') as f:
-                        shutil.copyfileobj(r.raw, f)
-                    
-                    logging.info(f"Decompressing {compressed_path}...")
-                    with decompress_func(compressed_path) as f_in:
-                        with open(final_path, 'wb') as f_out:
-                            shutil.copyfileobj(f_in, f_out)
-                    compressed_path.unlink()
-                else:
-                    with open(final_path, 'wb') as f:
-                        shutil.copyfileobj(r.raw, f)
-        except Exception as e:
-            logging.error(f"Failed to download or process sequences: {e}")
-            
-    # 3. Download reference sequence from NCBI using its accession ID
-    logging.info("Step 3: Fetching reference sequence from NCBI...")
-    fetch_reference_sequence(virus_config, global_config, virus_raw_dir)
-
+    if not virus_name == "sars-cov-2":
+        # 3. Download reference sequence from NCBI using its accession ID
+        logging.info("Step 3: Fetching reference sequence from NCBI...")
+        fetch_reference_sequence(virus_config, global_config, virus_raw_dir)
+        
 
 def main():
     """Main function to orchestrate data fetching based on config."""
