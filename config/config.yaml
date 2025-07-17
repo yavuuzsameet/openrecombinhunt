@@ -228,7 +228,7 @@ viruses:
 
     parameters:
       metadata_processing:
-        source_lineage_column: "lineage"
+        source_lineage_column: "pango_lineage"
         filters:
           - {column: "coverage", operator: ">=", value: 0.99}
           - {column: "missing_data", operator: "<", value: 589} # 2% of 29903

@@ -33,7 +33,6 @@ COLUMN_MAPPING = {
     "date_submitted": "Submission date"
 }
 
-
 # --- Formatting Functions ---
 
 def _format_single_date(date_str: str) -> str:
@@ -194,6 +193,7 @@ def process_nextstrain_metadata(df: pd.DataFrame, filter_rules: list, source_lin
         elif op == "<=": numeric_col = pd.to_numeric(df_processed[col], errors='coerce'); keep_mask = numeric_col <= val
         elif op == "<": numeric_col = pd.to_numeric(df_processed[col], errors='coerce'); keep_mask = numeric_col < val
         elif op == "==": keep_mask = df_processed[col] == val
+        elif op == "!=": keep_mask = df_processed[col] != val
         else: logging.warning(f"Filter operator '{op}' not implemented. Skipping."); continue
             
         dropped_mask = ~keep_mask
@@ -286,6 +286,10 @@ def main():
     processing_params = virus_config.get(PARAMETERS, {}).get(METADATA_PROCESSING, {})
     filter_rules = processing_params.get(FILTERS, [])
     source_lineage_col = processing_params.get(SOURCE_LINEAGE_COLUMN, 'NONE')
+
+    if virus_config.get(NAME) == 'sars-cov-2': 
+        # rename accession to strain in COLUMN_MAPPING
+        COLUMN_MAPPING['strain'] = COLUMN_MAPPING.pop('accession', 'Virus name')
     
     # Pass a copy of the mapping constant to the processing function
     df_processed, filtered_ids, non_classified_ids = process_nextstrain_metadata(df_raw, filter_rules, source_lineage_col, COLUMN_MAPPING.copy())
