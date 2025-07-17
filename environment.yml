@@ -10,7 +10,8 @@ dependencies:
   - _openmp_mutex=4.5=2_gnu
   - biopython=1.85=py310ha75aee5_1
   - bzip2=1.0.8=h4bc722e_7
-  - ca-certificates=2025.6.15=hbd8a1cb_0
+  - ca-certificates=2025.7.14=hbd8a1cb_0
+  - cffi=1.17.1=py310h8deb56e_0
   - colorama=0.4.6=pyhd8ed1ab_1
   - ld_impl_linux-64=2.44=h1423503_0
   - libblas=3.9.0=32_h59b9bed_openblas
@@ -38,6 +39,7 @@ dependencies:
   - openssl=3.5.1=h7b32b05_0
   - perl=5.32.1=7_hd590300_perl5
   - pip=25.1.1=pyh8b19718_0
+  - pycparser=2.22=pyh29332c3_1
   - python=3.10.12=hd12c33a_0_cpython
   - python_abi=3.10=7_cp310
   - readline=8.2=h8c095d6_2
@@ -49,6 +51,7 @@ dependencies:
   - xz=5.8.1=hbcc6ac9_2
   - xz-gpl-tools=5.8.1=hbcc6ac9_2
   - xz-tools=5.8.1=hb9d3cd8_2
+  - zstandard=0.23.0=py310ha75aee5_2
   - pip:
       - beautifulsoup4==4.13.4
       - certifi==2025.6.15

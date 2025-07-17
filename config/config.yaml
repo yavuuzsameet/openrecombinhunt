@@ -215,6 +215,44 @@ viruses:
     reference:
       accession_id: "NC_007362.1"
 
+  sars-cov-2:
+    name: "sars-cov-2"
+
+    source: "nextstrain"
+    method: "url"
+
+    # taxon_id: "" 
+
+    # reference:
+      # accession_id: "NC_045512.2"
+
+    parameters:
+      metadata_processing:
+        source_lineage_column: "lineage"
+        filters:
+          - {column: "coverage", operator: ">=", value: 0.99}
+          - {column: "missing_data", operator: "<", value: 589} # 2% of 29903
+          - {column: "virus", operator: "==", value: "ncov"}
+          - {column: "virus", operator: "notna"}
+          - {column: "length", operator: "notna"}
+          - {column: "date_submitted", operator: "notna"}
+          - {column: "QC_overall_status", operator: "notna"}
+          - {column: "QC_overall_status", operator: "!=", value: "bad"}
+          - {column: "QC_missing_data", operator: "==", value: "good"}
+          - {column: "QC_frame_shifts", operator: "==", value: "good"}
+          - {column: "QC_stop_codons", operator: "==", value: "good"}
+          - {column: "QC_mixed_sites", operator: "==", value: "good"}
+
+      # haplocov:
+      #   dist: 5
+      #   size: 50
+      #   designation_mode: "both"
+
+      recombinhunt:
+        lc_threshold: 0.75
+        min_genome_count: 10
+        run_mode: "consensus"
+
 ncbi-cli:
   # Configuration for NCBI CLI to download virus genomes and metadata.
   sequences:
@@ -240,6 +278,5 @@ nextstrain-url:
     metadata: "https://data.nextstrain.org/files/workflows/rsv/b/metadata.tsv.gz"
 
   sars-cov-2:
-    sequences: "https://nextstrain.org/data/nextstrain.org/sars-cov-2/latest/auspice/ncov-sequences.fasta"
-    metadata: "https://nextstrain.org/data/nextstrain.org/sars-cov-2/latest/auspice/ncov-metadata.tsv"
-
+    sequences: "https://data.nextstrain.org/files/ncov/open/sequences.fasta.zst"
+    metadata: "https://data.nextstrain.org/files/ncov/open/metadata.tsv.zst"

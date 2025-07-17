@@ -10,6 +10,7 @@ import shutil
 from pathlib import Path
 import sys
 import logging
+import zstandard as zstd
 
 # Add the project's 'src' directory to the Python path.
 SRC_PATH = Path(__file__).resolve().parent.parent
