@@ -17,8 +17,15 @@ try:
     from utils.constants import *
 except ImportError as e:
     print(f"Error: Could not import a required module. {e}")
-    print("Please ensure 'utils.py' and 'constants.py' exist in the 'src' directory.")
+    print("Please ensure 'utils.py' and 'constants.py' exist in the 'src/utils' directory.")
     sys.exit(1)
+
+def is_recombinant(lineage_name):
+    """Helper function to identify top-level recombinant lineages."""
+    if not isinstance(lineage_name, str):
+        return False
+    lineage_name = lineage_name.upper()
+    return lineage_name.startswith('X') and not '.' in lineage_name
 
 def create_samples_step(virus_name: str, config: dict):
     """
@@ -42,7 +49,7 @@ def create_samples_step(virus_name: str, config: dict):
         logging.info("Virus is 'sars-cov-2'. Using Nextstrain reformatted output as input.")
         # This path might need adjustment based on where the sars-cov-2 processing script saves its output
         input_dir = results_dir / "nextstrain_output" / virus_name
-        input_file = results_dir / "nextstrain_reformatted.tsv" 
+        input_file = input_dir / "nextstrain_reformatted.tsv" 
     else:
         logging.info(f"Virus is '{virus_name}'. Using HaploCoV reformatted output as input.")
         input_dir = results_dir / "haplocov_output" / virus_name / param_string
@@ -83,6 +90,13 @@ def create_samples_step(virus_name: str, config: dict):
         
     logging.info(f"Initially, there were {initial_length} rows.")
     logging.info(f"Data cleaning complete. {len(df)} rows remaining for sample creation.")
+
+    # --- MODIFICATION: Add special filtering for SARS-CoV-2 ---
+    if virus_name == 'sars-cov-2':
+        logging.info("Applying special filter for SARS-CoV-2: Keeping only recombinant lineages.")
+        recombinant_mask = df['pangoLin'].apply(is_recombinant)
+        df = df[recombinant_mask]
+        logging.info(f"{len(df)} rows remaining after keeping only recombinant lineages.")
 
     if df.empty:
         logging.warning("No data remains after cleaning. No sample files will be created.")

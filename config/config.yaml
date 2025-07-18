@@ -230,8 +230,8 @@ viruses:
       metadata_processing:
         source_lineage_column: "pango_lineage"
         filters:
-          - {column: "coverage", operator: ">=", value: 0.99}
           - {column: "missing_data", operator: "<", value: 589} # 2% of 29903
+          - {column: "coverage", operator: ">=", value: 0.99}
           - {column: "virus", operator: "==", value: "ncov"}
           - {column: "virus", operator: "notna"}
           - {column: "length", operator: "notna"}
@@ -278,5 +278,4 @@ nextstrain-url:
     metadata: "https://data.nextstrain.org/files/workflows/rsv/b/metadata.tsv.gz"
 
   sars-cov-2:
-    sequences: "https://data.nextstrain.org/files/ncov/open/sequences.fasta.zst"
     metadata: "https://data.nextstrain.org/files/ncov/open/metadata.tsv.zst"

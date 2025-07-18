@@ -163,7 +163,7 @@ def format_location_column(df: pd.DataFrame) -> pd.DataFrame:
 
 # --- Main Processing Function ---
 
-def process_nextstrain_metadata(df: pd.DataFrame, filter_rules: list, source_lineage_col: str, column_mapping: dict) -> Tuple[pd.DataFrame, Set[str], Set[str]]:
+def process_nextstrain_metadata(df: pd.DataFrame, filter_rules: list, source_lineage_col: str, column_mapping: dict, isCovid: bool) -> Tuple[pd.DataFrame, Set[str], Set[str]]:
     """Applies a full preprocessing workflow to the raw Nextstrain metadata."""
     df_processed = df.copy()
 
@@ -202,14 +202,15 @@ def process_nextstrain_metadata(df: pd.DataFrame, filter_rules: list, source_lin
         df_processed = df_processed[keep_mask]
         logging.info(f"  Filter '{col} {op} {val}': Removed {initial_rows - len(df_processed)} rows.")
         
-    # --- 2. Special Character Filter on ID ---
-    logging.info("Step 2: Checking for special characters in ID...")
-    initial_rows = len(df_processed)
-    special_char_mask = df_processed[source_id_col].astype(str).str.contains(SPECIAL_CHARS_PATTERN, regex=True, na=True)
-    ids_to_drop_special_chars = set(df_processed.loc[special_char_mask, source_id_col].dropna())
-    filtered_ids.update(ids_to_drop_special_chars)
-    df_processed = df_processed[~special_char_mask]
-    logging.info(f"  Filter 'Special Chars in ID': Removed {initial_rows - len(df_processed)} rows.")
+    if not isCovid:
+        # --- 2. Special Character Filter on ID ---
+        logging.info("Step 2: Checking for special characters in ID...")
+        initial_rows = len(df_processed)
+        special_char_mask = df_processed[source_id_col].astype(str).str.contains(SPECIAL_CHARS_PATTERN, regex=True, na=True)
+        ids_to_drop_special_chars = set(df_processed.loc[special_char_mask, source_id_col].dropna())
+        filtered_ids.update(ids_to_drop_special_chars)
+        df_processed = df_processed[~special_char_mask]
+        logging.info(f"  Filter 'Special Chars in ID': Removed {initial_rows - len(df_processed)} rows.")
     
     # --- 3. Handle Pango Lineage ---
     logging.info("Step 3: Processing lineage column...")
@@ -243,7 +244,9 @@ def process_nextstrain_metadata(df: pd.DataFrame, filter_rules: list, source_lin
     df_processed = format_location_column(df_processed)
     
     # Select and order final columns
-    expected_final_columns = ["Virus name", "Collection date", "Submission date", "Location", "Pango lineage"]
+    if isCovid: expected_final_columns = ["Virus name", "Collection date", "Submission date", "Location", "Pango lineage", "substitutions", "deletions", "insertions"]
+    else:       expected_final_columns = ["Virus name", "Collection date", "Submission date", "Location", "Pango lineage"]
+    
     final_columns_to_keep = [col for col in expected_final_columns if col in df_processed.columns]
     df_final = df_processed[final_columns_to_keep]
     
@@ -287,12 +290,14 @@ def main():
     filter_rules = processing_params.get(FILTERS, [])
     source_lineage_col = processing_params.get(SOURCE_LINEAGE_COLUMN, 'NONE')
 
+    isCovid = False
     if virus_config.get(NAME) == 'sars-cov-2': 
         # rename accession to strain in COLUMN_MAPPING
         COLUMN_MAPPING['strain'] = COLUMN_MAPPING.pop('accession', 'Virus name')
+        isCovid = True
     
     # Pass a copy of the mapping constant to the processing function
-    df_processed, filtered_ids, non_classified_ids = process_nextstrain_metadata(df_raw, filter_rules, source_lineage_col, COLUMN_MAPPING.copy())
+    df_processed, filtered_ids, non_classified_ids = process_nextstrain_metadata(df_raw, filter_rules, source_lineage_col, COLUMN_MAPPING.copy(), isCovid=isCovid)
     
     logging.info(f"Saving processed metadata ({len(df_processed)} rows) to {output_file}...")
     df_processed.to_csv(output_file, sep='\t', index=False, na_rep='NA')

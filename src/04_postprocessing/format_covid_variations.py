@@ -178,6 +178,15 @@ def main():
     if 'pango_lineage' in df_final.columns:
         logging.info("Renaming 'pango_lineage' column to 'pangoLin' for consistency...")
         df_final.rename(columns={'pango_lineage': 'pangoLin'}, inplace=True)
+
+    if 'Pango lineage' in df_final.columns:
+        logging.info("Renaming 'Pango lineage' column to 'pangoLin' for consistency...")
+        df_final.rename(columns={'Pango lineage': 'pangoLin'}, inplace=True)
+
+    # --- MODIFICATION: Rename 'Virus name' to genomeID ---
+    if 'Virus name' in df_final.columns:
+        logging.info("Renaming 'Virus name' column to 'genomeID' for consistency...")
+        df_final.rename(columns={'Virus name': 'genomeID'}, inplace=True)
     
     logging.info(f"Saving reformatted data with {len(df_final)} rows to: {output_file}")
     df_final.to_csv(output_file, sep='\t', index=False)

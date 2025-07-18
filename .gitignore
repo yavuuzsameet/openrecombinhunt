@@ -1,3 +1,6 @@
 /data/
 *temp_work*
 *Tgenomes*
+/samples/sars-cov-2/dist0size0-all/
+/results/nextstrain_output/sars-cov-2/
+head*

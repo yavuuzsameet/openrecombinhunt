@@ -235,12 +235,12 @@ def fetch_from_nextstrain(virus_config: dict, global_config: dict, virus_raw_dir
     metadata_url = virus_urls.get(METADATA)
     download_and_decompress(metadata_url, "raw_metadata.tsv")
 
-    # 2. Download and decompress sequences
-    logging.info("Step 2: Downloading sequences...")
-    sequences_url = virus_urls.get(SEQUENCES)
-    download_and_decompress(sequences_url, "raw_sequences.fasta")
-
     if not virus_name == "sars-cov-2":
+        # 2. Download and decompress sequences
+        logging.info("Step 2: Downloading sequences...")
+        sequences_url = virus_urls.get(SEQUENCES)
+        download_and_decompress(sequences_url, "raw_sequences.fasta")
+
         # 3. Download reference sequence from NCBI using its accession ID
         logging.info("Step 3: Fetching reference sequence from NCBI...")
         fetch_reference_sequence(virus_config, global_config, virus_raw_dir)
