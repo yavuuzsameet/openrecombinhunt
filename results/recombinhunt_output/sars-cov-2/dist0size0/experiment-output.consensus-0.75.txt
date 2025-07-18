@@ -1,0 +1,1461 @@
+
+========== Processing Lineage: XCJ ==========
+Total genomes available for this lineage: 1
+  Results for XCJ:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XG ==========
+Total genomes available for this lineage: 319
+  Results for XG:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XM ==========
+Total genomes available for this lineage: 188
+  Results for XM:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XAT ==========
+Total genomes available for this lineage: 2
+  Results for XAT:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XDV ==========
+Total genomes available for this lineage: 7
+  Results for XDV:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XCV ==========
+Total genomes available for this lineage: 58
+  Results for XCV:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XCL ==========
+Total genomes available for this lineage: 71
+  Results for XCL:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XD ==========
+Total genomes available for this lineage: 11
+  Results for XD:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 1
+
+========== Processing Lineage: XS ==========
+Total genomes available for this lineage: 23
+  Results for XS:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XAM ==========
+Total genomes available for this lineage: 73
+  Results for XAM:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XFP ==========
+Total genomes available for this lineage: 6
+  Results for XFP:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XAF ==========
+Total genomes available for this lineage: 30
+  Results for XAF:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XEJ ==========
+Total genomes available for this lineage: 6
+  Results for XEJ:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XF ==========
+Total genomes available for this lineage: 20
+  Results for XF:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XAC ==========
+Total genomes available for this lineage: 36
+  Results for XAC:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XDK ==========
+Total genomes available for this lineage: 150
+  Results for XDK:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XDH ==========
+Total genomes available for this lineage: 2
+  Results for XDH:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XAP ==========
+Total genomes available for this lineage: 41
+  Results for XAP:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XEE ==========
+Total genomes available for this lineage: 28
+  Results for XEE:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XAL ==========
+Total genomes available for this lineage: 60
+  Results for XAL:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XAG ==========
+Total genomes available for this lineage: 26
+  Results for XAG:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XCQ ==========
+Total genomes available for this lineage: 10
+  Results for XCQ:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XL ==========
+Total genomes available for this lineage: 75
+  Results for XL:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XBG ==========
+Total genomes available for this lineage: 66
+  Results for XBG:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XDY ==========
+Total genomes available for this lineage: 211
+  Results for XDY:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XBT ==========
+Total genomes available for this lineage: 52
+  Results for XBT:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 1
+
+========== Processing Lineage: XFK ==========
+Total genomes available for this lineage: 1
+  Results for XFK:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XAZ ==========
+Total genomes available for this lineage: 477
+  Results for XAZ:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XCU ==========
+Total genomes available for this lineage: 2
+  Results for XCU:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 1
+
+========== Processing Lineage: XBH ==========
+Total genomes available for this lineage: 11
+  Results for XBH:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 1
+
+========== Processing Lineage: XAJ ==========
+Total genomes available for this lineage: 46
+  Results for XAJ:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XBF ==========
+Total genomes available for this lineage: 606
+  Results for XBF:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XCA ==========
+Total genomes available for this lineage: 31
+  Results for XCA:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XBE ==========
+Total genomes available for this lineage: 163
+  Results for XBE:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XCS ==========
+Total genomes available for this lineage: 1
+  Results for XCS:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XAA ==========
+Total genomes available for this lineage: 57
+  Results for XAA:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XEB ==========
+Total genomes available for this lineage: 12
+  Results for XEB:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XV ==========
+Total genomes available for this lineage: 24
+  Results for XV:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XCZ ==========
+Total genomes available for this lineage: 17
+  Results for XCZ:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XBL ==========
+Total genomes available for this lineage: 26
+  Results for XBL:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XDF ==========
+Total genomes available for this lineage: 3
+  Results for XDF:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XER ==========
+Total genomes available for this lineage: 2
+  Results for XER:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XDQ ==========
+Total genomes available for this lineage: 10
+  Results for XDQ:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XAS ==========
+Total genomes available for this lineage: 195
+  Results for XAS:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XCF ==========
+Total genomes available for this lineage: 52
+  Results for XCF:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XFJ ==========
+Total genomes available for this lineage: 11
+  Results for XFJ:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XDN ==========
+Total genomes available for this lineage: 137
+  Results for XDN:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XAK ==========
+Total genomes available for this lineage: 58
+  Results for XAK:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XW ==========
+Total genomes available for this lineage: 75
+  Results for XW:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XBN ==========
+Total genomes available for this lineage: 19
+  Results for XBN:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XP ==========
+Total genomes available for this lineage: 52
+  Results for XP:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XES ==========
+Total genomes available for this lineage: 58
+  Results for XES:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XCP ==========
+Total genomes available for this lineage: 77
+  Results for XCP:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XAU ==========
+Total genomes available for this lineage: 12
+  Results for XAU:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XEQ ==========
+Total genomes available for this lineage: 260
+  Results for XEQ:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XBV ==========
+Total genomes available for this lineage: 7
+  Results for XBV:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XCM ==========
+Total genomes available for this lineage: 33
+  Results for XCM:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XFG ==========
+Total genomes available for this lineage: 131
+  Results for XFG:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XEG ==========
+Total genomes available for this lineage: 4
+  Results for XEG:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 1
+
+========== Processing Lineage: XEL ==========
+Total genomes available for this lineage: 32
+  Results for XEL:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XBD ==========
+Total genomes available for this lineage: 81
+  Results for XBD:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XFH ==========
+Total genomes available for this lineage: 4
+  Results for XFH:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XEK ==========
+Total genomes available for this lineage: 282
+  Results for XEK:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XCK ==========
+Total genomes available for this lineage: 13
+  Results for XCK:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XQ ==========
+Total genomes available for this lineage: 83
+  Results for XQ:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XDL ==========
+Total genomes available for this lineage: 37
+  Results for XDL:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XAB ==========
+Total genomes available for this lineage: 70
+  Results for XAB:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XH ==========
+Total genomes available for this lineage: 103
+  Results for XH:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XBM ==========
+Total genomes available for this lineage: 65
+  Results for XBM:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XFL ==========
+Total genomes available for this lineage: 3
+  Results for XFL:
+    Samples Run: 1
+    Successful Runs: 0
+    Result - No Match: 1
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XFB ==========
+Total genomes available for this lineage: 6
+  Results for XFB:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XEC ==========
+Total genomes available for this lineage: 5170
+  Results for XEC:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XA ==========
+Total genomes available for this lineage: 35
+  Results for XA:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XCT ==========
+Total genomes available for this lineage: 31
+  Results for XCT:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XU ==========
+Total genomes available for this lineage: 2
+  Results for XU:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XBU ==========
+Total genomes available for this lineage: 8
+  Results for XBU:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 1
+
+========== Processing Lineage: XBZ ==========
+Total genomes available for this lineage: 150
+  Results for XBZ:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XFC ==========
+Total genomes available for this lineage: 53
+  Results for XFC:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XCC ==========
+Total genomes available for this lineage: 12
+  Results for XCC:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XDG ==========
+Total genomes available for this lineage: 10
+  Results for XDG:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XFM ==========
+Total genomes available for this lineage: 3
+  Results for XFM:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XCE ==========
+Total genomes available for this lineage: 4
+  Results for XCE:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XDC ==========
+Total genomes available for this lineage: 3
+  Results for XDC:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XCY ==========
+Total genomes available for this lineage: 5
+  Results for XCY:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 1
+
+========== Processing Lineage: XR ==========
+Total genomes available for this lineage: 84
+  Results for XR:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XAH ==========
+Total genomes available for this lineage: 5
+  Results for XAH:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XCW ==========
+Total genomes available for this lineage: 51
+  Results for XCW:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XN ==========
+Total genomes available for this lineage: 190
+  Results for XN:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XE ==========
+Total genomes available for this lineage: 1653
+  Results for XE:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XFA ==========
+Total genomes available for this lineage: 2
+  Results for XFA:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XZ ==========
+Total genomes available for this lineage: 70
+  Results for XZ:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XBK ==========
+Total genomes available for this lineage: 137
+  Results for XBK:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XDE ==========
+Total genomes available for this lineage: 10
+  Results for XDE:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XEN ==========
+Total genomes available for this lineage: 28
+  Results for XEN:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XDS ==========
+Total genomes available for this lineage: 35
+  Results for XDS:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XDA ==========
+Total genomes available for this lineage: 330
+  Results for XDA:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XEV ==========
+Total genomes available for this lineage: 56
+  Results for XEV:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XBR ==========
+Total genomes available for this lineage: 11
+  Results for XBR:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XY ==========
+Total genomes available for this lineage: 63
+  Results for XY:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XAD ==========
+Total genomes available for this lineage: 28
+  Results for XAD:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XEU ==========
+Total genomes available for this lineage: 18
+  Results for XEU:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XEW ==========
+Total genomes available for this lineage: 18
+  Results for XEW:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XBQ ==========
+Total genomes available for this lineage: 36
+  Results for XBQ:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XAY ==========
+Total genomes available for this lineage: 1
+  Results for XAY:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XAV ==========
+Total genomes available for this lineage: 25
+  Results for XAV:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XEH ==========
+Total genomes available for this lineage: 40
+  Results for XEH:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XAN ==========
+Total genomes available for this lineage: 51
+  Results for XAN:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XBB ==========
+Total genomes available for this lineage: 318
+  Results for XBB:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XET ==========
+Total genomes available for this lineage: 4
+  Results for XET:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XBJ ==========
+Total genomes available for this lineage: 8
+  Results for XBJ:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XEY ==========
+Total genomes available for this lineage: 2
+  Results for XEY:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XEM ==========
+Total genomes available for this lineage: 4
+  Results for XEM:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XDD ==========
+Total genomes available for this lineage: 214
+  Results for XDD:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XEP ==========
+Total genomes available for this lineage: 17
+  Results for XEP:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XBS ==========
+Total genomes available for this lineage: 18
+  Results for XBS:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XBW ==========
+Total genomes available for this lineage: 23
+  Results for XBW:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XJ ==========
+Total genomes available for this lineage: 3
+  Results for XJ:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XCH ==========
+Total genomes available for this lineage: 159
+  Results for XCH:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XDB ==========
+Total genomes available for this lineage: 23
+  Results for XDB:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XED ==========
+Total genomes available for this lineage: 23
+  Results for XED:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XDT ==========
+Total genomes available for this lineage: 18
+  Results for XDT:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XFN ==========
+Total genomes available for this lineage: 6
+  Results for XFN:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XDR ==========
+Total genomes available for this lineage: 23
+  Results for XDR:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XBP ==========
+Total genomes available for this lineage: 29
+  Results for XBP:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XEF ==========
+Total genomes available for this lineage: 48
+  Results for XEF:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XAE ==========
+Total genomes available for this lineage: 18
+  Results for XAE:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XDJ ==========
+Total genomes available for this lineage: 1
+  Results for XDJ:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XCR ==========
+Total genomes available for this lineage: 170
+  Results for XCR:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XCG ==========
+Total genomes available for this lineage: 18
+  Results for XCG:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XDM ==========
+Total genomes available for this lineage: 19
+  Results for XDM:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 0
+    Result - 1BP (Recombinant): 1
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XDP ==========
+Total genomes available for this lineage: 218
+  Results for XDP:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+========== Processing Lineage: XB ==========
+Total genomes available for this lineage: 770
+  Results for XB:
+    Samples Run: 1
+    Successful Runs: 1
+    Result - No Match: 0
+    Result - 0BP (Single Candidate): 1
+    Result - 1BP (Recombinant): 0
+    Result - 2BP (Recombinant): 0
+
+
+==================== Overall Summary Table ====================
+true_lineage  samples_run  True Lineage in Candidates %  0BP (Single Candidate)  1BP  2BP  No Match
+         XCJ            1                           0.0                       0    1    0         0
+          XG            1                           0.0                       0    1    0         0
+          XM            1                           0.0                       0    1    0         0
+         XAT            1                           0.0                       1    0    0         0
+         XDV            1                           0.0                       1    0    0         0
+         XCV            1                           0.0                       0    1    0         0
+         XCL            1                           0.0                       0    1    0         0
+          XD            1                           0.0                       0    0    1         0
+          XS            1                           0.0                       0    1    0         0
+         XAM            1                           0.0                       0    1    0         0
+         XFP            1                           0.0                       0    1    0         0
+         XAF            1                           0.0                       0    1    0         0
+         XEJ            1                           0.0                       1    0    0         0
+          XF            1                           0.0                       0    1    0         0
+         XAC            1                           0.0                       1    0    0         0
+         XDK            1                           0.0                       0    1    0         0
+         XDH            1                           0.0                       0    1    0         0
+         XAP            1                           0.0                       0    1    0         0
+         XEE            1                           0.0                       1    0    0         0
+         XAL            1                           0.0                       0    1    0         0
+         XAG            1                           0.0                       0    1    0         0
+         XCQ            1                           0.0                       0    1    0         0
+          XL            1                           0.0                       0    1    0         0
+         XBG            1                           0.0                       0    1    0         0
+         XDY            1                           0.0                       1    0    0         0
+         XBT            1                           0.0                       0    0    1         0
+         XFK            1                           0.0                       1    0    0         0
+         XAZ            1                           0.0                       0    1    0         0
+         XCU            1                           0.0                       0    0    1         0
+         XBH            1                           0.0                       0    0    1         0
+         XAJ            1                           0.0                       1    0    0         0
+         XBF            1                           0.0                       1    0    0         0
+         XCA            1                           0.0                       0    1    0         0
+         XBE            1                           0.0                       0    1    0         0
+         XCS            1                           0.0                       0    1    0         0
+         XAA            1                           0.0                       0    1    0         0
+         XEB            1                           0.0                       0    1    0         0
+          XV            1                           0.0                       0    1    0         0
+         XCZ            1                           0.0                       0    1    0         0
+         XBL            1                           0.0                       1    0    0         0
+         XDF            1                           0.0                       0    1    0         0
+         XER            1                           0.0                       0    1    0         0
+         XDQ            1                           0.0                       1    0    0         0
+         XAS            1                           0.0                       0    1    0         0
+         XCF            1                           0.0                       1    0    0         0
+         XFJ            1                           0.0                       1    0    0         0
+         XDN            1                           0.0                       0    1    0         0
+         XAK            1                           0.0                       0    1    0         0
+          XW            1                           0.0                       0    1    0         0
+         XBN            1                           0.0                       0    1    0         0
+          XP            1                           0.0                       1    0    0         0
+         XES            1                           0.0                       0    1    0         0
+         XCP            1                           0.0                       0    1    0         0
+         XAU            1                           0.0                       0    1    0         0
+         XEQ            1                           0.0                       1    0    0         0
+         XBV            1                           0.0                       0    1    0         0
+         XCM            1                           0.0                       0    1    0         0
+         XFG            1                           0.0                       1    0    0         0
+         XEG            1                           0.0                       0    0    1         0
+         XEL            1                           0.0                       1    0    0         0
+         XBD            1                           0.0                       0    1    0         0
+         XFH            1                           0.0                       1    0    0         0
+         XEK            1                           0.0                       1    0    0         0
+         XCK            1                           0.0                       0    1    0         0
+          XQ            1                           0.0                       0    1    0         0
+         XDL            1                           0.0                       0    1    0         0
+         XAB            1                           0.0                       0    1    0         0
+          XH            1                           0.0                       0    1    0         0
+         XBM            1                           0.0                       0    1    0         0
+         XFL            1                           0.0                       0    0    0         1
+         XFB            1                           0.0                       1    0    0         0
+         XEC            1                           0.0                       1    0    0         0
+          XA            1                           0.0                       0    1    0         0
+         XCT            1                           0.0                       1    0    0         0
+          XU            1                           0.0                       0    1    0         0
+         XBU            1                           0.0                       0    0    1         0
+         XBZ            1                           0.0                       0    1    0         0
+         XFC            1                           0.0                       1    0    0         0
+         XCC            1                           0.0                       0    1    0         0
+         XDG            1                           0.0                       0    1    0         0
+         XFM            1                           0.0                       1    0    0         0
+         XCE            1                           0.0                       0    1    0         0
+         XDC            1                           0.0                       0    1    0         0
+         XCY            1                           0.0                       0    0    1         0
+          XR            1                           0.0                       0    1    0         0
+         XAH            1                           0.0                       0    1    0         0
+         XCW            1                           0.0                       0    1    0         0
+          XN            1                           0.0                       1    0    0         0
+          XE            1                           0.0                       0    1    0         0
+         XFA            1                           0.0                       0    1    0         0
+          XZ            1                           0.0                       0    1    0         0
+         XBK            1                           0.0                       1    0    0         0
+         XDE            1                           0.0                       0    1    0         0
+         XEN            1                           0.0                       1    0    0         0
+         XDS            1                           0.0                       0    1    0         0
+         XDA            1                           0.0                       1    0    0         0
+         XEV            1                           0.0                       1    0    0         0
+         XBR            1                           0.0                       0    1    0         0
+          XY            1                           0.0                       0    1    0         0
+         XAD            1                           0.0                       0    1    0         0
+         XEU            1                           0.0                       0    1    0         0
+         XEW            1                           0.0                       1    0    0         0
+         XBQ            1                           0.0                       0    1    0         0
+         XAY            1                           0.0                       0    1    0         0
+         XAV            1                           0.0                       1    0    0         0
+         XEH            1                           0.0                       1    0    0         0
+         XAN            1                           0.0                       0    1    0         0
+         XBB            1                           0.0                       1    0    0         0
+         XET            1                           0.0                       1    0    0         0
+         XBJ            1                           0.0                       1    0    0         0
+         XEY            1                           0.0                       1    0    0         0
+         XEM            1                           0.0                       1    0    0         0
+         XDD            1                           0.0                       1    0    0         0
+         XEP            1                           0.0                       1    0    0         0
+         XBS            1                           0.0                       0    1    0         0
+         XBW            1                           0.0                       0    1    0         0
+          XJ            1                           0.0                       0    1    0         0
+         XCH            1                           0.0                       1    0    0         0
+         XDB            1                           0.0                       0    1    0         0
+         XED            1                           0.0                       1    0    0         0
+         XDT            1                           0.0                       0    1    0         0
+         XFN            1                           0.0                       0    1    0         0
+         XDR            1                           0.0                       0    1    0         0
+         XBP            1                           0.0                       0    1    0         0
+         XEF            1                           0.0                       1    0    0         0
+         XAE            1                           0.0                       0    1    0         0
+         XDJ            1                           0.0                       0    1    0         0
+         XCR            1                           0.0                       0    1    0         0
+         XCG            1                           0.0                       0    1    0         0
+         XDM            1                           0.0                       0    1    0         0
+         XDP            1                           0.0                       1    0    0         0
+          XB            1                           0.0                       1    0    0         0
+
+
+==================== Recombinant Genomes Detected by Lineage ====================
+
+No recombinant genomes were detected in this run.
