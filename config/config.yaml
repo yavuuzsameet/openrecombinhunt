@@ -207,8 +207,8 @@ viruses:
   influenza:
     name: "influenza"
 
-    source: "ncbi"
-    method: "cli"
+    source: "ftp"
+    method: "url"
 
     taxon_id: "11320"
 
@@ -279,3 +279,12 @@ nextstrain-url:
 
   sars-cov-2:
     metadata: "https://data.nextstrain.org/files/ncov/open/metadata.tsv.zst"
+
+ftp-url:
+  influenza:
+    metadata: "https://ftp.ncbi.nlm.nih.gov/genomes/Viruses/AllNuclMetadata/AllNuclMetadata.csv.gz"
+
+ftp-cli:
+  influenza:
+    sequences:
+    - "datasets download nucleotide accession --inputfile {virus_name}-accession-ids.txt --filename {virus_name}-sequences.zip"

@@ -28,6 +28,49 @@ except ImportError as e:
 
 # --- Main Fetching Logic Functions ---
 
+def download_and_decompress(url: str, final_filename: str, virus_raw_dir: Path):
+        """Helper to download a file and decompress it based on its extension."""
+        if not url:
+            logging.warning(f"No URL provided for {final_filename}. Skipping.")
+            return
+
+        logging.info(f"Downloading from {url}")
+        
+        # Determine temporary filename and decompression method
+        if url.endswith(".gz"):
+            temp_path = virus_raw_dir / f"temp_{final_filename}.gz"
+            decompressor = gzip.open
+        elif url.endswith(".zst"):
+            temp_path = virus_raw_dir / f"temp_{final_filename}.zst"
+            decompressor = zstd.open
+        elif url.endswith(".xz"):
+            temp_path = virus_raw_dir / f"temp_{final_filename}.xz"
+            decompressor = lzma.open
+        else:
+            logging.warning(f"Unrecognized compression format for URL: {url}. Assuming no compression.")
+            temp_path = virus_raw_dir / final_filename
+            decompressor = None
+
+        final_path = virus_raw_dir / final_filename
+
+        try:
+            with requests.get(url, stream=True) as r:
+                r.raise_for_status()
+                with open(temp_path, 'wb') as f:
+                    shutil.copyfileobj(r.raw, f)
+
+            if decompressor:
+                logging.info(f"Decompressing {temp_path}...")
+                with decompressor(temp_path, 'rb') as f_in:
+                    with open(final_path, 'wb') as f_out:
+                        shutil.copyfileobj(f_in, f_out)
+                temp_path.unlink() # Delete the compressed file
+            
+            logging.info(f"Successfully created {final_path}")
+
+        except Exception as e:
+            logging.error(f"Failed to download or process {url}: {e}")
+
 def fetch_reference_sequence(virus_config: dict, global_config: dict, virus_raw_dir: Path):
     """
     Downloads and processes the reference sequence for a virus from NCBI.
@@ -187,64 +230,42 @@ def fetch_from_nextstrain(virus_config: dict, global_config: dict, virus_raw_dir
     #     except Exception as e:
     #         logging.error(f"Failed to download or process sequences: {e}")
 
-    def download_and_decompress(url: str, final_filename: str):
-        """Helper to download a file and decompress it based on its extension."""
-        if not url:
-            logging.warning(f"No URL provided for {final_filename}. Skipping.")
-            return
-
-        logging.info(f"Downloading from {url}")
-        
-        # Determine temporary filename and decompression method
-        if url.endswith(".gz"):
-            temp_path = virus_raw_dir / f"temp_{final_filename}.gz"
-            decompressor = gzip.open
-        elif url.endswith(".zst"):
-            temp_path = virus_raw_dir / f"temp_{final_filename}.zst"
-            decompressor = zstd.open
-        elif url.endswith(".xz"):
-            temp_path = virus_raw_dir / f"temp_{final_filename}.xz"
-            decompressor = lzma.open
-        else:
-            logging.warning(f"Unrecognized compression format for URL: {url}. Assuming no compression.")
-            temp_path = virus_raw_dir / final_filename
-            decompressor = None
-
-        final_path = virus_raw_dir / final_filename
-
-        try:
-            with requests.get(url, stream=True) as r:
-                r.raise_for_status()
-                with open(temp_path, 'wb') as f:
-                    shutil.copyfileobj(r.raw, f)
-
-            if decompressor:
-                logging.info(f"Decompressing {temp_path}...")
-                with decompressor(temp_path, 'rb') as f_in:
-                    with open(final_path, 'wb') as f_out:
-                        shutil.copyfileobj(f_in, f_out)
-                temp_path.unlink() # Delete the compressed file
-            
-            logging.info(f"Successfully created {final_path}")
-
-        except Exception as e:
-            logging.error(f"Failed to download or process {url}: {e}")
-
     # 1. Download and decompress metadata
     logging.info("Step 1: Downloading metadata...")
     metadata_url = virus_urls.get(METADATA)
-    download_and_decompress(metadata_url, "raw_metadata.tsv")
+    download_and_decompress(metadata_url, "raw_metadata.tsv", virus_raw_dir)
 
     if not virus_name == "sars-cov-2":
         # 2. Download and decompress sequences
         logging.info("Step 2: Downloading sequences...")
         sequences_url = virus_urls.get(SEQUENCES)
-        download_and_decompress(sequences_url, "raw_sequences.fasta")
+        download_and_decompress(sequences_url, "raw_sequences.fasta", virus_raw_dir)
 
         # 3. Download reference sequence from NCBI using its accession ID
         logging.info("Step 3: Fetching reference sequence from NCBI...")
         fetch_reference_sequence(virus_config, global_config, virus_raw_dir)
         
+def fetch_from_ftp(virus_config: dict, global_config: dict, virus_raw_dir: Path):
+    """Handles data acquisition for FTP-sourced viruses."""
+    logging.info("Starting FTP data acquisition...")
+
+    # Get the virus name from the config
+    virus_name = virus_config.get(NAME)
+    if not virus_name:
+        logging.error("Virus name not found in the configuration. Cannot proceed with FTP data acquisition.")
+        return
+
+    # Get the FTP URL block for the specific virus from the global config
+    ftp_urls = global_config.get(FTP_URL, {}).get(virus_name, {})
+    if not ftp_urls:
+        logging.error(f"No FTP URLs found for '{virus_name}' under the '{FTP_URL}' key in the config file.")
+        return
+
+    # 1. Download and decompress metadata
+    metadata_url = ftp_urls.get(METADATA)
+    if metadata_url:
+        logging.info(f"Step 1: Downloading metadata from {metadata_url}")
+        download_and_decompress(metadata_url, "raw_metadata.tsv", virus_raw_dir)
 
 def main():
     """Main function to orchestrate data fetching based on config."""
@@ -288,6 +309,8 @@ def main():
             fetch_from_ncbi(virus_config, config, virus_raw_dir)
         elif source == NEXTSTRAIN:
             fetch_from_nextstrain(virus_config, config, virus_raw_dir)
+        elif source == FTP:
+            fetch_from_ftp(virus_config, config, virus_raw_dir)  
         else:
             logging.error(f"Unknown data acquisition method '{source}' for virus '{virus_name}'.")
             sys.exit(1)
