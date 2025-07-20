@@ -152,7 +152,7 @@ def main():
     logging.info(f"Loading raw metadata from {input_file}...")
     try:
         # Use comment='#' to handle the '#Accession' column name if it causes issues
-        df_raw = pd.read_csv(input_file, sep='\t', low_memory=False, comment='#')
+        df_raw = pd.read_csv(input_file, low_memory=False)
         # If the first column is now 'Accession' instead of '#Accession', fix it
         if 'Accession' in df_raw.columns and '#Accession' not in df_raw.columns:
             df_raw.rename(columns={'Accession': '#Accession'}, inplace=True)
