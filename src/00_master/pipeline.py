@@ -99,14 +99,19 @@ def main():
         # Step 2: Preprocessing (Conditional based on source)
         if source == "ncbi":
             step2_prep_meta = [python_executable, "src/02_preprocessing/ncbi/prep_metadata_ncbi.py", "--virus", virus_name, "--config", args.config]
+            step2_prep_fasta = [python_executable, "src/02_preprocessing/common/prep_fasta.py", "--virus", virus_name, "--config", args.config]
+            step2_prep_ref = [python_executable, "src/02_preprocessing/common/prep_ref.py", "--virus", virus_name, "--config", args.config]
         elif source == "nextstrain":
             step2_prep_meta = [python_executable, "src/02_preprocessing/nextstrain/prep_metadata_nextstrain.py", "--virus", virus_name, "--config", args.config]
+            step2_prep_fasta = [python_executable, "src/02_preprocessing/common/prep_fasta.py", "--virus", virus_name, "--config", args.config]
+            step2_prep_ref = [python_executable, "src/02_preprocessing/common/prep_ref.py", "--virus", virus_name, "--config", args.config]
+        elif source == "ftp":
+            step2_prep_meta = [python_executable, "src/02_preprocessing/ftp/prep_metadata_ftp.py", "--virus", virus_name, "--config", args.config]
+            step2_prep_fasta = [python_executable, "src/02_preprocessing/ftp/fetch_ftp_sequences_by_id.py", "--virus", virus_name, "--config", args.config]
+            step2_prep_ref = [python_executable, "src/02_preprocessing/ftp/fetch_ftp_references.py", "--virus", virus_name, "--config", args.config]
         else:
             logging.error(f"Unknown source '{source}' for virus '{virus_name}'. Cannot determine preprocessing script.")
             continue # Skip to the next virus
-
-        step2_prep_fasta = [python_executable, "src/02_preprocessing/common/prep_fasta.py", "--virus", virus_name, "--config", args.config]
-        step2_prep_ref = [python_executable, "src/02_preprocessing/common/prep_ref.py", "--virus", virus_name, "--config", args.config]
 
         # Step 3: Run HaploCoV
         step3_run_haplocov = [python_executable, "src/03_haplocov/run_haplocov.py", "--virus", virus_name, "--config", args.config]
@@ -122,23 +127,22 @@ def main():
         # Step 6: Run RecombinHunt
         step6_run_recombinhunt = [python_executable, "src/06_recombinhunt/run_recombinhunt.py", "--virus", virus_name, "--config", args.config]
 
-
         # --- Execute the pipeline sequentially ---
         if virus_name.lower() == "sars-cov-2":
             pipeline_steps = [
-                #step1_fetch,
-                #step2_prep_meta,
-                #step4_postprocess_covid,
-                #step5_create_env,
+                step1_fetch,
+                step2_prep_meta,
+                step4_postprocess_covid,
+                step5_create_env,
                 step5_create_samples,
                 step6_run_recombinhunt
             ]
         else:
             pipeline_steps = [
                 #step1_fetch,
-                step2_prep_meta,
-                step2_prep_fasta,
-                step2_prep_ref,
+                #step2_prep_meta,
+                #step2_prep_fasta,
+                #step2_prep_ref,
                 step3_run_haplocov,
                 step4_postprocess_haplocov,
                 step5_create_env,

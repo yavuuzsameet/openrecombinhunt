@@ -215,6 +215,17 @@ viruses:
     reference:
       accession_id: "NC_007362.1"
 
+    parameters:
+      haplocov:
+        dist: 5
+        size: 50
+        designation_mode: "haplocov"
+
+      recombinhunt:
+        lc_threshold: 0.75
+        min_genome_count: 10
+        run_mode: "all"
+
   sars-cov-2:
     name: "sars-cov-2"
 
