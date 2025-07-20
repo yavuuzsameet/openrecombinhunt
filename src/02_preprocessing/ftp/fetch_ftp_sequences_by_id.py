@@ -61,8 +61,7 @@ def fetch_sequences_step(virus_name: str, config: dict):
         shutil.copy(accession_ids_filepath, temp_accession_ids_path)
 
         # Get the command template from the config
-        ftp_cli_config = config.get(FTP_CLI, {}).get(virus_name, {})
-        sequence_commands = ftp_cli_config.get(SEQUENCES, [])
+        sequence_commands = config.get(FTP_CLI, {}).get(SEQUENCES, {})
         if not sequence_commands:
             logging.error(f"No sequence download commands found for '{virus_name}' in config under 'ftp-cli'.")
             raise ValueError("Missing CLI command in config.")

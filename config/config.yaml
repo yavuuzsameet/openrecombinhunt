@@ -285,9 +285,8 @@ ftp-url:
     metadata: "https://ftp.ncbi.nlm.nih.gov/genomes/Viruses/AllNuclMetadata/AllNuclMetadata.csv.gz"
 
 ftp-cli:
-  influenza:
-    sequences:
-    - "datasets download virus genome accession --inputfile {virus_name}-accession-ids.txt --filename {virus_name}-sequences.zip"
+  sequences:
+  - "datasets download virus genome accession --inputfile {virus_name}-accession-ids.txt --filename {virus_name}-sequences.zip"
 
-    reference:
-    - "datasets download virus genome accession {accession_id} --include genome --filename {virus_name}-reference.zip"
+  reference:
+  - "datasets download virus genome accession {accession_id} --include genome --filename {virus_name}-reference.zip"
