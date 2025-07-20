@@ -145,7 +145,7 @@ def main():
     processed_dir = Path(paths_config.get(PROCESSED_DATA, 'data/processed')) / args.virus
     processed_dir.mkdir(parents=True, exist_ok=True)
     
-    input_file = raw_dir / "raw_metadata.tsv"
+    input_file = raw_dir / "raw_metadata.csv"
     output_file = processed_dir / "metadata.tsv"
     accession_ids_file = processed_dir / f"{args.virus}-accession-ids.txt"
 

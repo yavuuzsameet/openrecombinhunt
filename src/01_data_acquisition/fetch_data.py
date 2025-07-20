@@ -265,7 +265,7 @@ def fetch_from_ftp(virus_config: dict, global_config: dict, virus_raw_dir: Path)
     metadata_url = ftp_urls.get(METADATA)
     if metadata_url:
         logging.info(f"Step 1: Downloading metadata from {metadata_url}")
-        download_and_decompress(metadata_url, "raw_metadata.tsv", virus_raw_dir)
+        download_and_decompress(metadata_url, "raw_metadata.csv", virus_raw_dir)
 
 def main():
     """Main function to orchestrate data fetching based on config."""
