@@ -197,7 +197,7 @@ viruses:
       haplocov:
         dist: 3
         size: 10
-        designation_mode: "haplocov"
+        designation_mode: "both"
 
       recombinhunt:
         lc_threshold: 0.5
@@ -262,7 +262,8 @@ viruses:
       recombinhunt:
         lc_threshold: 0.75
         min_genome_count: 10
-        run_mode: "consensus"
+        run_mode: "random"
+        num_samples_to_run: 100
 
 ncbi-cli:
   # Configuration for NCBI CLI to download virus genomes and metadata.
