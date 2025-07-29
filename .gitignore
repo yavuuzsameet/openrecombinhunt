@@ -4,5 +4,6 @@
 /samples/sars-cov-2/dist0size0-all/
 /results/nextstrain_output/sars-cov-2/
 /results/recombinhunt_output/sars-cov-2/
+*structured_reports*
 head*
 src/analyse/influenza_data_exploration/

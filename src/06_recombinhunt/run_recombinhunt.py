@@ -91,7 +91,8 @@ def run_recombinhunt_for_lineage(
     threshold: float,
     report_file_handle,
     html_report_handle,
-    virus_name_for_report: str
+    virus_name_for_report: str,
+    structured_reports_dir: Path
 ) -> dict:
     """
     Reads a per-lineage sample file, runs RecombinHunt, and returns detailed statistics.
@@ -104,6 +105,9 @@ def run_recombinhunt_for_lineage(
         'count_other_recombinant': 0, 'recombinant_genome_ids': [],
         'stat1_exact_match_success': 0, 'stat2_in_candidates_success': 0
     }
+
+    summary_for_filtering = []
+    summary_for_extensive_table = []
 
     try:
         df_lineage = pd.read_csv(sample_filepath, sep='\t', dtype=str)
@@ -178,6 +182,8 @@ def run_recombinhunt_for_lineage(
 
                 if html_report_handle:
                     representative_id = ids_for_this_pattern[0] if ids_for_this_pattern else "Unknown_ID"
+                    case_report_folder = structured_reports_dir / f"case_{current_case_number}_{true_lineage_name}_{representative_id}"
+
                     ca = CaseAnalysis(
                         experiment=experiment,
                         case_name=representative_id,
@@ -187,7 +193,18 @@ def run_recombinhunt_for_lineage(
                         lineage_hierarchy=experiment.lh
                     )
                     ca.print_case_details(html_report_handle)
-            
+                    ca.save_structured_report(case_report_folder)
+
+                    summary_for_filtering.append({
+                        'genomeIDs': ",".join(ids_for_this_pattern),
+                        'original_lineage': true_lineage_name,
+                        'recombinant_parents': ca.best_candidates_str,
+                        'breakpoint_count': f"{num_candidates - 1}BP",
+                        'case_report_folder': str(case_report_folder)
+                    })
+
+                    summary_for_extensive_table.append(ca.analysis_table_row())
+
             if len(recombinhunt_candidates) == 1 and recombinhunt_candidates[0] == true_lineage_name:
                 results_summary['stat1_exact_match_success'] += 1
             if true_lineage_name in recombinhunt_candidates:
@@ -202,6 +219,9 @@ def run_recombinhunt_for_lineage(
         results_summary['stat2_perc'] = (results_summary['stat2_in_candidates_success'] / results_summary['recombinhunt_runs_successful']) * 100
     else:
         results_summary['stat1_perc'], results_summary['stat2_perc'] = 0.0, 0.0
+
+    results_summary['summary_for_filtering'] = summary_for_filtering
+    results_summary['summary_for_extensive_table'] = summary_for_extensive_table
         
     return results_summary
 
@@ -223,6 +243,8 @@ def run_experiments(virus_name: str, config: dict):
     samples_dir = Path(paths_config.get(SAMPLES)) / virus_name / param_string
     results_dir = Path(paths_config.get(RESULTS)) / "recombinhunt_output" / virus_name / param_string
     results_dir.mkdir(parents=True, exist_ok=True)
+    structured_reports_dir = results_dir / "structured_reports"
+    structured_reports_dir.mkdir(parents=True, exist_ok=True)
 
     # --- 2. Load RecombinHunt Environment ---
     logging.info(f"Loading RecombinHunt environment from: {env_dir}")
@@ -255,7 +277,8 @@ def run_experiments(virus_name: str, config: dict):
 
         number_of_genomes_per_lineage = load_lineage_genome_counts(samples_dir / "samples_total.json")
         sample_files = get_sample_files(samples_dir)
-        all_results_data, recombinants_by_lineage, case_counter = [], {}, 1
+        all_results_data, all_summary_for_filtering, all_summary_for_extensive_table = [], [], []
+        recombinants_by_lineage, case_counter = {}, 1
 
         for lineage_name, filepath in tqdm(sample_files, desc="Running Experiments"):
             write_to_report(f"\n{'='*10} Processing Lineage: {lineage_name} {'='*10}")
@@ -268,7 +291,8 @@ def run_experiments(virus_name: str, config: dict):
                 experiment_environment=env, run_mode=run_mode,
                 num_samples_to_run=num_samples, random_seed=42, threshold=threshold,
                 report_file_handle=report_file, html_report_handle=html_file,
-                virus_name_for_report=virus_name
+                virus_name_for_report=virus_name,
+                structured_reports_dir=structured_reports_dir
             )
             case_counter += 1
             
@@ -284,6 +308,8 @@ def run_experiments(virus_name: str, config: dict):
                 write_to_report(f"    Result - 1BP (Recombinant): {results['count_1BP_recombinant']}")
                 write_to_report(f"    Result - 2BP (Recombinant): {results['count_2BP_recombinant']}")
                 all_results_data.append(results)
+                all_summary_for_filtering.extend(results.get('summary_for_filtering', []))
+                all_summary_for_extensive_table.extend(results.get('summary_for_extensive_table', []))
 
         # --- 5. Write Final Summaries ---
         if all_results_data:
@@ -312,7 +338,33 @@ def run_experiments(virus_name: str, config: dict):
                     write_to_report("  " + ", ".join(ids))
             else:
                 write_to_report("\nNo recombinant genomes were detected in this run.")
-        
+
+        if all_summary_for_filtering:
+            filtering_df = pd.DataFrame(all_summary_for_filtering)
+            filtering_df.to_csv(results_dir / "recombinant_summary.tsv", index=False, sep='\t')
+            write_to_report("\n\n" + "="*20 + " recombinant_summary " + "="*20)
+            write_to_report(filtering_df.to_string(index=False))
+            logging.info(f"Recombinant summary saved to: {results_dir / 'recombinant_summary.tsv'}")
+        else:
+            logging.warning("No recombinant summaries were generated. Check if any recombinants were detected.")
+
+        if all_summary_for_extensive_table:
+            # Define headers for the extensive table based on the CaseAnalysis output
+            extensive_headers = [
+                "case_number", "case_name", "n_sequences", "n_changes", "group_name",
+                "gt_candidates", "test_status", "initial_region_span", "gap_history",
+                "best_candidates", "direction_L1", "rank_L1_L2",
+                "bc_breakpoints_target", "gt_breakpoints_target",
+                "p_value_vs_L1", "p_value_vs_L2", "alternative_candidates"
+            ]
+            extensive_df = pd.DataFrame(all_summary_for_extensive_table, columns=extensive_headers)
+            extensive_df.to_csv(results_dir / "recombinant_summary_extensive.tsv", sep='\t', index=False)
+            write_to_report("\n\n" + "="*20 + " Extensive Summary Table " + "="*20)
+            write_to_report(extensive_df.to_string(index=False))
+            logging.info(f"Saved extensive summary table to: {results_dir / 'recombinant_summary_extensive.tsv'}")
+        else:
+            logging.warning("No extensive summary table was generated. Check if any cases were analyzed.")
+            
         html_file.write("</body></html>\n")
         logging.info(f"Text report saved to: {report_filepath}")
         logging.info(f"HTML report saved to: {html_report_filepath}")
