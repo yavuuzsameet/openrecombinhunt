@@ -41,7 +41,7 @@ viruses:
           # Rule 4: Discard rows where sequence 'Length' is less than 9000.
           - column: "Length"
             operator: ">="
-            value: 9000
+            value: 9775
 
       haplocov:
         dist: 3
@@ -152,6 +152,11 @@ viruses:
           - column: "Length"
             operator: "notna"
 
+          # Rule 4: Discard rows where sequence 'Length' is less than 90% of the reference length.
+          - column: "Length"
+            operator: ">="
+            value: 9727
+
       haplocov:
         dist: 3
         size: 10
@@ -192,7 +197,7 @@ viruses:
           # Rule 4: Discard rows where sequence 'Length' is less than 180000.
           - column: "Length"
             operator: ">="
-            value: 180000
+            value: 177488
 
       haplocov:
         dist: 3
