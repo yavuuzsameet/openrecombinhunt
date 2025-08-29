@@ -1,12 +1,17 @@
+import json
 import sys
 from pathlib import Path
 import yaml
+import os
+import re
 import pandas as pd
 import streamlit as st
 from streamlit_option_menu import option_menu
+import streamlit.components.v1 as components
 import plotly.express as px
 import plotly.graph_objects as go
 from geopy.geocoders import Nominatim
+from agstyler import draw_grid, PINLEFT, PRECISION_TWO
 
 # --- Path Setup for Imports ---
 # Add the project root to the Python path to allow imports from 'src'
@@ -371,7 +376,6 @@ def create_geographic_map(df, virus):
 
     st.plotly_chart(fig, use_container_width=True)
 
-
 def create_distribution_plots(df, virus):
     "creates temporal and locational distributions"
     st.title("📈 Distribution Plots")
@@ -381,6 +385,251 @@ def create_distribution_plots(df, virus):
 
     st.subheader("🌏 Locational Distribution")
     create_geographic_map(df, virus)
+
+def apply_user_filter(df, virus):
+    """Apply user-defined filters to the DataFrame."""
+    # filter types
+    a, b, c = st.columns(3)
+
+    with a:
+        lineage_filter = st.selectbox(
+            'Select Lineage:',
+            ["All"] + sorted(df["pangoLin"].dropna().unique().tolist()) if "pangoLin" in df.columns else ["NA"]
+        )
+
+    with b:
+        breakpoint_filter = st.selectbox(
+            "Breakpoint Count:",
+            ["All"] + sorted(df["breakpoint_count"].dropna().unique().tolist()) if "breakpoint_count" in df.columns else ["NA"]
+        )
+
+    with c:
+        if virus == "sars-cov-2": df["continent"] = df["Location"].apply(lambda x: x.split("/")[0].strip() if isinstance(x, str) else x)
+        else: df["continent"] = df["continent"].apply(lambda x: x.strip() if isinstance(x, str) else x)
+        location_filter = st.selectbox(
+            "Select Continent:",
+            ["All"] + sorted(df["continent"].dropna().unique().tolist()) if "continent" in df.columns else ["NA"]
+        )
+
+    # apply filters
+    if lineage_filter not in ["All", "NA"]:
+        df = df[df["pangoLin"] == lineage_filter]
+
+    if breakpoint_filter not in ["All", "NA"]:
+        df = df[df["breakpoint_count"] == breakpoint_filter]
+
+    if location_filter not in ["All", "NA"]:
+        df = df[df["continent"] == location_filter]
+
+    return df
+
+def load_report_data(path):
+    """Load report data from a specified path."""
+    
+    report = {}
+
+    # load summary.json
+    summary_path = os.path.join(path, "summary.json")
+    if os.path.exists(summary_path):
+        with open(summary_path, "r") as f:
+            report["summary"] = json.load(f)
+
+    # load all region tables
+    # files named region_*_table.csv: 
+    # * in [1, 2] if 1BP
+    # * in [1, 2, 3] if 2BP
+    region_files = [f for f in os.listdir(path) if f.startswith("region_") and f.endswith("_table.csv")]
+    for region_file in region_files:
+        region_path = os.path.join(path, region_file)
+        if os.path.exists(region_path):
+            with open(region_path, "r") as f:
+                report[region_file] = pd.read_csv(f)
+
+    # load plots (in json format)
+    # plot_per_region.json
+    # plot_whole_genome.json
+    plot_files = [f for f in os.listdir(path) if f.startswith("plot_") and f.endswith(".json")]
+    for plot_file in plot_files:
+        plot_path = os.path.join(path, plot_file)
+        if os.path.exists(plot_path):
+            with open(plot_path, "r") as f:
+                report[plot_file] = json.load(f)
+
+    # load target_mutations.txt
+    target_mutations_path = os.path.join(path, "target_mutations.txt")
+    if os.path.exists(target_mutations_path):
+        with open(target_mutations_path, "r") as f:
+            report["target_mutations"] = f.read().splitlines()
+
+    return report
+
+def display_detailed_report(report):
+    if not report:
+        st.warning("No report data available.")
+        return
+    
+    # summary
+    if "summary" in report:
+        with st.expander("📋 Case Summary", expanded=True):
+            summary = report["summary"]
+            
+            a, b = st.columns(2)
+            a.metric("Genome ID", summary["case_name"], border=True)
+            b.metric("Lineage Name", summary["group_name"], border=True)
+
+            a, b = st.columns(2)
+            a.metric("Number of Sequences", summary["number_of_sequences"], border=True)
+            b.metric("Number of Changes", summary["number_of_changes"], border=True)
+
+            [a] = st.columns(1)
+            a.metric("Recombinant Parents", summary["best_candidates"], border=True)
+
+            a, b, c = st.columns(3)
+            a.metric("Breakpoints Target", summary["best_candidates_breakpoints_target"], border=True)
+            b.metric("Breakpoints Genomic", summary["best_candidates_breakpoints_genomic"], border=True)
+            c.metric("Direction L1", summary["direction_L1"], border=True)
+
+    # TODO: DISCUSS THIS PART WITH TOMMASO
+    # region tables
+    region_tables = {
+        k: v
+        for k, v in report.items()
+        if k.startswith("region_") and isinstance(v, pd.DataFrame)
+    }
+    if region_tables:
+        with st.expander("📊 Region Analysis Tables", expanded=False):
+            for region_name, df in region_tables.items():
+                st.markdown(f"#### {region_name.replace('_', ' ').replace('.csv', '').title()}")
+                st.dataframe(df, use_container_width=True)
+
+    # plot visualization graphs from JSON
+    plot_files = [f for f in report.keys() if f.startswith("plot_") and f.endswith(".json")]
+    if plot_files:
+        with st.expander("📈 Visualization", expanded=True):
+            for plot_file in plot_files:
+                st.markdown(f"#### {plot_file.replace('_', ' ').replace('.json', '').title()}")
+                fig = go.Figure(report[plot_file])
+                st.plotly_chart(fig, use_container_width=True)
+
+    # target mutations list
+    if "target_mutations" in report:
+        with st.expander("🎯 Target Mutations", expanded=False):
+            st.markdown("#### List of Target Mutations")
+
+            mutations = [m.strip() for m in report["target_mutations"][0].split(",")]
+
+            def classify_mutation(mutation: str):
+                # Deletion: 12345_12349 or 12345
+                if re.fullmatch(r"\d+_\d+", mutation) or re.fullmatch(r"\d+", mutation):
+                    return "deletion"
+                # Insertion: 12345_.|ATG
+                elif re.fullmatch(r"\d+_\.\|[A-Za-z]+", mutation):
+                    return "insertion"
+                # Substitution: 12345_T|A
+                elif re.fullmatch(r"\d+_[A-Za-z]+\|[A-Za-z]+", mutation):
+                    return "substitution"
+                else:
+                    return "other"
+
+            colors = {
+                "deletion":   {"bg": "#ffebee", "fg": "#c62828"},   # red
+                "insertion":  {"bg": "#e8f5e9", "fg": "#2e7d32"},   # green
+                "substitution": {"bg": "#e3f2fd", "fg": "#1565c0"}, # blue
+                "other":      {"bg": "#eeeeee", "fg": "#424242"},   # grey
+            }
+
+            def make_chip(text, kind):
+                style = colors[kind]
+                return (
+                    f"<span style='background:{style['bg']}; color:{style['fg']}; "
+                    f"padding:3px 8px; border-radius:12px; margin:2px; "
+                    f"display:inline-block; font-size:90%; font-weight:500'>{text}</span>"
+                )
+
+            # --- Legend chips ---
+            legend = " ".join([
+                make_chip("Deletion", "deletion"),
+                make_chip("Insertion", "insertion"),
+                make_chip("Substitution", "substitution"),
+            ])
+            st.markdown(legend, unsafe_allow_html=True)
+
+            # --- Mutation chips ---
+            chips = []
+            for m in mutations:
+                mtype = classify_mutation(m)
+                chips.append(make_chip(m, mtype))
+
+            st.markdown(" ".join(chips), unsafe_allow_html=True)
+
+def create_recombinant_cases_table(df):
+    """Create a table to display recombinant cases."""
+    st.subheader("🔬 Recombinant Cases")
+
+    if df.empty:
+        st.warning("No recombinant cases found.")
+        return
+
+    formatter = {
+        "genomeID": ("Genome ID", PINLEFT),
+        "breakpoint_count": ("BP Count", {"width": 80}),
+        "original_lineage": ("Assigned Lineage", {"width": 150}),
+        "recombinant_parents": ("Recombinant Parents", {"width": 250}),
+        "country": ("Country", {"width": 100}),
+        "collection_date": ("Collection Date", {"width": 100}),
+    }
+
+    custom_css = {
+        ".ag-root": {"font-family": "inherit"}, 
+        ".ag-cell": {"font-family": "inherit"},
+        ".ag-header-cell": {"font-family": "inherit"}
+    }
+
+    response = draw_grid(
+        df,
+        formatter=formatter,
+        fit_columns=True,
+        selection="single",     
+        use_checkbox=True,     
+        max_height=800,
+        css=custom_css,
+    )
+
+    if response:
+        selected = response["selected_rows"]
+        if selected is not None:
+            selected_id = selected["genomeID"].iloc[0]
+
+            #st.experimental_set_query_params(scroll="details_section")
+            st.markdown("---")
+
+            st.markdown('<div id="details_section"></div>', unsafe_allow_html=True)
+            st.subheader("📄 Details of the Selected Genome:")
+            st.markdown(f"### {selected_id}")
+            
+            # Only scroll when the selection changes
+            if st.session_state.get("last_scrolled_id") != selected_id:
+                components.html(
+                    """
+                    <script>
+                      const scrollNow = () => {
+                        const el = window.parent.document.getElementById("details_section");
+                        if (el) { el.scrollIntoView({behavior: "smooth", block: "start"}); }
+                      };
+                      // Small delay helps ensure parent DOM finished updating
+                      setTimeout(scrollNow, 60);
+                    </script>
+                    """,
+                    height=0,
+                )
+                st.session_state["last_scrolled_id"] = selected_id
+
+
+            path_to_the_case_report_folder = selected["case_report_folder"].iloc[0]
+
+            report = load_report_data(path_to_the_case_report_folder)
+            display_detailed_report(report)
+
 
 def sidebar(virus_list):
     """sidebar navigation for the streamlit"""
@@ -480,6 +729,16 @@ def show_virus_page(virus):
         st.markdown("---")
 
         create_distribution_plots(summary_df, virus)
+
+    with tab2:
+        # filtering
+        recombinant_df = master_df[master_df["is_recombinant"]]
+        explorer_df = apply_user_filter(recombinant_df, virus)
+
+        st.markdown("---")
+
+        # create interactive table with radio buttons as the index column
+        create_recombinant_cases_table(explorer_df)
 
 def main():
 
